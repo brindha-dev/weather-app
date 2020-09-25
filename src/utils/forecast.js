@@ -16,9 +16,9 @@ const forecast = function (latitude, longitude, callback) {
             callback('Unable to connect to forecast services', undefined);
         }
 
-        const string = response.body.current.weather_descriptions[0] + ". It is currently " + response.body.current.temperature + " degrees out. But feels like " + response.body.current.feelslike + " degrees";
+        const string = response.body.current.weather_descriptions[0] + ". It is currently " + response.body.current.temperature + " degrees out. But feels like " + response.body.current.feelslike + " degrees. Humidity is " + response.body.current.humidity + "%.";
         callback(undefined, string)
     })
 }
 
-module.exports= forecast;
+module.exports = forecast;
