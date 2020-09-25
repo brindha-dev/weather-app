@@ -10,7 +10,7 @@ formElem.addEventListener('submit', (event) => {
     msg1.textContent = "Searching...."
     msg2.textContent = ""
 
-    var url = 'http://localhost:3000/weather?address=' + inputElem.value;
+    var url = '/weather?address=' + inputElem.value;
     fetch(url).then((response) => {
         response.json().then((data) => {
             if (data.error) {

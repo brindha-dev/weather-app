@@ -6,6 +6,9 @@ const hbs = require('hbs');
 const express = require('express');
 const app = express();
 
+//PORT
+const port = process.env.PORT || 3000;
+
 //custom modules
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
@@ -55,7 +58,7 @@ app.get('/weather', (req, res) => {
         })
     }
 
-    geocode(req.query.address, (error, { latitude, longitude, location }={}) => {
+    geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
         if (error) {
             return res.send({
                 error
@@ -97,6 +100,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up and listening in port 3000')
+app.listen(port, () => {
+    console.log('Server is up and listening in port ' + port)
 })
